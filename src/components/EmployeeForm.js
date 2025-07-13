@@ -1,5 +1,5 @@
 import React from "react";
-import './EmployeeForm';
+import '../EmployeeForm.css';
 
 class EmployeeForm extends React.Component {
     constructor(props) {
@@ -51,7 +51,7 @@ class EmployeeForm extends React.Component {
                 </div>
 
                 <div className="form-group">
-                <label htmlFor="title">Job Title:</label>
+                <label htmlFor="title">Title:</label>
                 <input
                     id="title"
                     name="title"
@@ -75,7 +75,6 @@ class EmployeeForm extends React.Component {
                 <button type="submit">Submit</button>
             </form>
         );
-    
     }
 }
 
