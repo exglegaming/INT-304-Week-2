@@ -14,7 +14,16 @@ class EmployeeForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Submitted Employee:', this.state);
+        //console.log('Submitted Employee:', this.state);
+
+        const newEmployee = {
+            name: this.state.name,
+            email: this.state.email,
+            title: this.state.title,
+            department: this.state.department
+        };
+
+        this.props.onAddEmployee(newEmployee);
 
         this.setState({
             name: '',
@@ -72,7 +81,7 @@ class EmployeeForm extends React.Component {
                 />
                 </div>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Add Employee</button>
             </form>
         );
     }
