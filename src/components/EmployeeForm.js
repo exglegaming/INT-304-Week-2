@@ -45,6 +45,7 @@ class EmployeeForm extends React.Component {
                     type="text"
                     value={name}
                     onChange={this.handleChange}
+                    required
                 />
                 </div>
 
@@ -56,6 +57,7 @@ class EmployeeForm extends React.Component {
                     type="email"
                     value={email}
                     onChange={this.handleChange}
+                    required
                 />
                 </div>
 
@@ -67,6 +69,7 @@ class EmployeeForm extends React.Component {
                     type="text"
                     value={title}
                     onChange={this.handleChange}
+                    required
                 />
                 </div>
 
@@ -78,6 +81,7 @@ class EmployeeForm extends React.Component {
                     type="text"
                     value={department}
                     onChange={this.handleChange}
+                    required
                 />
                 </div>
 
