@@ -1,6 +1,8 @@
 import './App.css';
 import EmployeeForm from './components/EmployeeForm';
+import EmployeeList from './components/EmployeeList';
 import {useEffect, useState} from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
     const [employees, setEmployees] = useState([]);
@@ -13,7 +15,12 @@ function App() {
     }, []);
 
     const addEmployee = (newEmployee) => {
-        const updatedEmployees = [...employees, newEmployee];
+        const employeeWithId = {
+            ...newEmployee,
+            EmployeeId: Date.now()
+        };
+
+        const updatedEmployees = [...employees, employeeWithId];
         setEmployees(updatedEmployees);
         saveData(updatedEmployees)
     }
@@ -23,10 +30,20 @@ function App() {
     }
 
     return (
-        <div className="App">
-          <h1>Employee Form</h1>
-          <EmployeeForm onAddEmployee={addEmployee} />
-        </div>
+        <Router>
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={
+                        <>
+                            <h1>Employee Form</h1>
+                            <EmployeeForm onAddEmployee={addEmployee} />
+                            <EmployeeList employees={employees} />
+                        </>
+                    } />
+                    <Route path="/employees/:id" element={<div>Employee Detail Page (Coming Soon)</div>} />
+                </Routes>
+            </div>
+        </Router>
     );
 }
 
