@@ -1,6 +1,7 @@
 import './App.css';
 import EmployeeForm from './components/EmployeeForm';
 import EmployeeList from './components/EmployeeList';
+import EmployeeDetail from './components/EmployeeDetail';
 import {useEffect, useState} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -40,7 +41,7 @@ function App() {
                             <EmployeeList employees={employees} />
                         </>
                     } />
-                    <Route path="/employees/:id" element={<div>Employee Detail Page (Coming Soon)</div>} />
+                    <Route path="/employees/:id" element={<EmployeeDetail employees={employees} />} />
                 </Routes>
             </div>
         </Router>
